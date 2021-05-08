@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Main Script -->
+        <script>
+            $(document).ready(function(){
+
+                $('a.arrows').on('click',function(){
+                    event.preventDefault();
+                    $("#pagination").val($(this).attr("action"));
+                    $('form#search').submit();
+                });
+
+                $('input, select').on('input',function(){
+                    event.preventDefault();
+                    $("#pagination").val("");
+                    $('form#search').submit();
+                });
+
+                $(document).on('submit', 'form', function(){
+                    let params =  $(this).serialize() + '&sort=' + $('select option:selected').val();
+                    $.post($(this).attr('action'), params, function(res) {
+                        if(res.trim() != ""){
+                            $('section').html(res);
+                        }
+                    }, 'html');
+                    return false;
+                });
+
+                $('form#search').submit();
+            });
+        </script>
+        <!-- Personalized -->
+        <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+    </head>
+    <body>
+        <header>
+            <img src="https://cdn.hackerhero.com/1.1/assets/images/global/hh_logo_beta.svg" alt="Hacker Hero Logo">
+            <p>MERCHANDISE</p>
+        </header>
+
+        <form action="/filter" method="POST" id="search">
+            <div>
+                <img src='../images/magnifying_glass.png'/>
+                <input type="search" name="item" placeholder="Search an item">
+            </div>
+            <input type="hidden" id="pagination" name="pagination" value=""/>
+            <h2>Price</h2>
+            <input type="number" min="0" placeholder="Min" name="min"/> -
+            <input type="number" min="0" placeholder="Max" name="max"/>
+            
+            <h2>Category</h2>
+            <label><input type="radio" name="category" value="0"> All</label>
+<%      for(const row in categories) { %>
+            <label><input type="radio" name="category" value="<%= categories[row].id %>"> <%= categories[row].name %></label>
+<%      } %>
+            <h2>Shipping from</h2>
+<%      for(const row in locations) { %>            
+            <label><input type="checkbox" name="locations[]" value="<%= locations[row].id %>"> <%= locations[row].name %></label>
+<%      } %>
+        </form>
+        
+        <main>
+            <h2>All Items</h2>
+            <nav>
+                <a href="#" class="arrows" action="prev">&#11164;</a>
+                <a href="#" class="arrows" action="next">&#11166;</a>
+            </nav>
+            <form action="#">
+                <label for="sorted_by">Sorted by</label>
+                <select name="sorted_by">
+                    <option value="ASC" selected>Price low to high</option>
+                    <option value="DESC">Price high to low</option>
+                </select>
+            </form>
+            <!-- Display Products -->
+            <section></section>
+        </main>
+
+    </body>
+</html>

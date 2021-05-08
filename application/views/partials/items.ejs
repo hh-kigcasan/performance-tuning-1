@@ -1,0 +1,12 @@
+<%  for(const row in items){ %>            
+        <figure>
+            <a href="#">
+                <img src="<%= items[row].image_url %>" title="<%= items[row].name %>"/>
+                <p>P<%= items[row].price %></p>
+                <figcaption><%= items[row].name %></figcaption>
+            </a>
+<%      if(items[row].total_sold){ %>
+            <p class="sold">(<%= items[row].total_sold %> sold already)</p>
+<%      } %>                    
+        </figure>
+<%  } %>  

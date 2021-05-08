@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background: url(https://cdn.hackerhero.com/1.1/assets/images/subscription/hackerhero-hexa-bg.png) 50%/cover fixed;
+    background-color: #2A2B2E;
+    background-position: 3px 734px;
+    transition: .25s ease-in-out;
+    font-family: Helvetica;
+    color: #fff;
+}
+header {
+    background-color: #1B1D21;
+    padding: 10px 20px;
+    position: relative;
+}
+    header p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        position: absolute;
+        top: 12px;        
+        left: 190px;
+    }
+
+.arrows {
+    text-decoration: none;
+    color: #37d261;
+    font-size: 20px; 
+} 
+
+
+body > form {
+    width:225px;
+    padding: 20px;
+    margin: 20px 40px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #19191a;
+}
+    form div {
+        width: 185px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        background-color: white;
+        padding: 5px;
+    }    
+        form div img {
+            width:12px; 
+            vertical-align:baseline;
+        }
+        form div input, nav div input:focus {
+            border: none;
+            outline: none;        
+            background-color:white;
+            width: 150px;
+        }
+        body > form h2 {
+            margin: 15px 0px 5px 0px;
+            font-size: 15px;
+            color: #ded8d8;
+        }
+        body > form label {
+            display: block;
+            font-size: 14px;
+            color:#c2c1c1;
+            line-height: 20px;
+        }
+input[type="number"] {
+    width: 50px;
+    padding: 1px;
+}
+
+
+main {
+    width: 65%;    
+    background-color: #0e0e11;
+    position: relative;
+    padding: 18px 18px 40px 18px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+    main nav, main form {
+        right: 20px;
+        position: absolute;
+    }
+    main nav, main h2 {
+        display: inline-block;
+        vertical-align: top;
+    }
+    main nav {
+        top: 12px;
+    }
+    main nav span {
+        padding: 5px;
+        color: #c2c1c1;
+    }
+    main form select {
+        padding: 2px;
+        border-radius: 10px;
+        outline: 0;
+    }
+    main form label {
+        font-size: 15px;
+        color: #c2c1c1;
+    }
+    main section figure{
+        text-align: center;
+        width: 100px;
+        display: inline-block;
+        vertical-align: top;
+        margin: 35px 5px -5px 15px;
+        position:relative;
+    }
+        main section figure a {
+            text-decoration: none;
+            color: #000000a4;
+        }
+        main section figure a img {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border: 1px solid lightgray;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            object-fit: contain;
+        }
+        main section figure a p {
+            width: 100px;
+            height: 20px;
+            position: absolute;
+            top: 80px;
+            padding-right:5px;
+            background-color:rgba(147, 175, 46, 0.65);
+            text-align: right;
+            border: 1px solid lightgray;            
+            border-top: none;
+            color:#000000cf;
+        }
+        main section figure a figcaption {
+            overflow: hidden;
+            text-overflow: ellipsis; 
+            white-space: nowrap;
+            color:rgb(177, 174, 174);
+            font-size:13px;
+        }
+        p.sold{
+            font-size: 11px;
+            color: gray;
+        }
+
+@media only screen and (max-width: 980px) {
+    main {
+        width: 63%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    main {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    main {
+        width: 55%;
+    }
+}
